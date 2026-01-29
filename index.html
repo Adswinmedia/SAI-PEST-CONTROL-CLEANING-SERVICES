@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAI Pest Control - Professional Services in Pune</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+    
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.90) 100%);
+    }
+    
+    .service-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    .stat-card {
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .stat-card:nth-child(1) { animation-delay: 0.1s; }
+    .stat-card:nth-child(2) { animation-delay: 0.2s; }
+    .stat-card:nth-child(3) { animation-delay: 0.3s; }
+    .stat-card:nth-child(4) { animation-delay: 0.4s; }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+    
+    .sticky-header {
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    
+    .trust-badge {
+      transition: transform 0.3s ease;
+    }
+    
+    .trust-badge:hover {
+      transform: scale(1.05);
+    }
+
+    .img-loader {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      z-index: 9999;
+      animation: slideIn 0.3s ease-out;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .toast.success {
+      background: #10b981;
+      color: white;
+    }
+
+    .toast.error {
+      background: #ef4444;
+      color: white;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="h-full w-full overflow-auto">
+  <div class="w-full h-full" id="app"><!-- Sticky Header with Navigation -->
+   <header class="sticky-header sticky top-0 z-50 bg-white/95 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+     <div class="flex justify-between items-center gap-4">
+      <div class="text-left">
+       <h1 class="text-lg sm:text-xl lg:text-2xl font-bold" id="business-name" style="color: #0f172a;">SAI PEST CONTROL</h1>
+       <p class="text-xs sm:text-sm hidden sm:block" id="tagline" style="color: #64748b;">Professional Services in Pune</p>
+      </div><!-- Desktop Menu -->
+      <nav class="hidden lg:flex items-center gap-6"><a href="#services" class="font-semibold transition-colors hover:opacity-80" style="color: #0f172a; text-decoration: none;">Services</a> <a href="#why-us" class="font-semibold transition-colors hover:opacity-80" style="color: #0f172a; text-decoration: none;">Why Choose Us</a> <a href="#testimonials" class="font-semibold transition-colors hover:opacity-80" style="color: #0f172a; text-decoration: none;">Reviews</a> <a href="#areas" class="font-semibold transition-colors hover:opacity-80" style="color: #0f172a; text-decoration: none;">Areas</a> <a href="#faq" class="font-semibold transition-colors hover:opacity-80" style="color: #0f172a; text-decoration: none;">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-3"><a id="header-call-btn" class="hidden sm:flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-3 rounded-lg font-semibold text-center transition-all text-white text-sm lg:text-base" style="background-color: #10b981; text-decoration: none;"> �� <span id="header-phone">07719012999</span> </a> <a href="#contact-form" class="px-4 lg:px-6 py-2 lg:py-3 rounded-lg font-semibold text-center transition-all text-sm lg:text-base" style="background-color: #0f172a; color: white; text-decoration: none;"> 📝 Book Now </a> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg transition-all" style="color: #0f172a;">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg></button>
+      </div>
+     </div><!-- Mobile Menu -->
+     <nav id="mobile-menu" class="lg:hidden hidden mt-4 pt-4 border-t" style="border-color: #e2e8f0;">
+      <div class="flex flex-col gap-3"><a href="#services" class="mobile-menu-link font-semibold py-2 transition-colors" style="color: #0f172a; text-decoration: none;">Services</a> <a href="#why-us" class="mobile-menu-link font-semibold py-2 transition-colors" style="color: #0f172a; text-decoration: none;">Why Choose Us</a> <a href="#testimonials" class="mobile-menu-link font-semibold py-2 transition-colors" style="color: #0f172a; text-decoration: none;">Reviews</a> <a href="#areas" class="mobile-menu-link font-semibold py-2 transition-colors" style="color: #0f172a; text-decoration: none;">Areas</a> <a href="#faq" class="mobile-menu-link font-semibold py-2 transition-colors" style="color: #0f172a; text-decoration: none;">FAQ</a> <a id="mobile-call-btn" class="flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-center transition-all text-white sm:hidden mt-2" style="background-color: #10b981; text-decoration: none;"> 📞 <span id="mobile-phone">07719012999</span> </a>
+      </div>
+     </nav>
+    </div>
+   </header><!-- Hero Section with Background Image -->
+   <section class="relative min-h-[600px] flex items-center" style="background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&amp;q=80') center/cover no-repeat;">
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white">
+     <div class="max-w-3xl">
+      <div class="inline-block bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+       ✓ Trusted by 5000+ Happy Customers in Pune
+      </div>
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight" id="hero-title">Protect Your Home &amp; Workplace From Pests</h2>
+      <p class="text-xl sm:text-2xl font-semibold mb-8 text-green-400" id="hero-subtitle">Safe, Effective &amp; Guaranteed Results</p>
+      <ul class="space-y-3 mb-10 text-lg">
+       <li class="flex items-center gap-3"><span class="bg-green-500 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span> <span>Government Approved Chemicals - Safe for Kids &amp; Pets</span></li>
+       <li class="flex items-center gap-3"><span class="bg-green-500 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span> <span>Same Day Service Available - Quick Response</span></li>
+       <li class="flex items-center gap-3"><span class="bg-green-500 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span> <span>100% Satisfaction Guarantee - Or Money Back</span></li>
+      </ul>
+      <div class="flex flex-col sm:flex-row gap-4"><a href="#contact-form" class="px-10 py-5 rounded-lg font-bold text-lg transition-all text-center shadow-2xl" style="background-color: #10b981; color: white; text-decoration: none;"> <span id="cta-text">Get Free Inspection</span> → </a> <a id="hero-call-btn" class="px-10 py-5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg font-bold text-lg transition-all text-center border-2 border-white" style="text-decoration: none; color: white;"> 📞 Call Now </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- Trust Stats -->
+   <section class="py-12" style="background-color: #ffffff;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="text-center stat-card">
+       <div class="text-4xl sm:text-5xl font-black mb-2" style="color: #10b981;">
+        5000+
+       </div>
+       <p class="font-semibold" style="color: #64748b;">Happy Customers</p>
+      </div>
+      <div class="text-center stat-card">
+       <div class="text-4xl sm:text-5xl font-black mb-2" style="color: #10b981;">
+        15+
+       </div>
+       <p class="font-semibold" style="color: #64748b;">Years Experience</p>
+      </div>
+      <div class="text-center stat-card">
+       <div class="text-4xl sm:text-5xl font-black mb-2" style="color: #10b981;">
+        100%
+       </div>
+       <p class="font-semibold" style="color: #64748b;">Safe &amp; Eco-Friendly</p>
+      </div>
+      <div class="text-center stat-card">
+       <div class="text-4xl sm:text-5xl font-black mb-2" style="color: #10b981;">
+        24/7
+       </div>
+       <p class="font-semibold" style="color: #64748b;">Support Available</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Services Section with Images -->
+   <section id="services" class="py-20" style="background-color: #f8fafc;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-black mb-4" style="color: #0f172a;">Our Professional Services</h2>
+      <p class="text-xl" style="color: #64748b;">Complete Pest Control &amp; Cleaning Solutions for Your Peace of Mind</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Cockroach Control -->
+      <div class="service-card rounded-2xl overflow-hidden shadow-lg" style="background-color: #ffffff;">
+       <div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1563253804-48658f326e1f?w=800&amp;q=80" alt="Cockroach Control" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Service image unavailable';">
+       </div>
+       <div class="p-6">
+        <h3 class="text-2xl font-bold mb-3" style="color: #0f172a;">🪳 Cockroach Control</h3>
+        <p class="mb-4" style="color: #64748b;">Complete elimination with odorless gel &amp; spray treatment. Long-lasting protection.</p><button onclick="bookService('Cockroach Control')" class="font-semibold inline-flex items-center gap-2 transition-colors bg-transparent border-0 cursor-pointer p-0" style="color: #10b981;"> Book Service → </button>
+       </div>
+      </div><!-- Termite Treatment -->
+      <div class="service-card rounded-2xl overflow-hidden shadow-lg" style="background-color: #ffffff;">
+       <div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&amp;q=80" alt="Termite Control" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Service image unavailable';">
+       </div>
+       <div class="p-6">
+        <h3 class="text-2xl font-bold mb-3" style="color: #0f172a;">🐛 Termite Control</h3>
+        <p class="mb-4" style="color: #64748b;">Pre &amp; post-construction treatment. Protect your property investment.</p><button onclick="bookService('Cockroach Control')" class="font-semibold inline-flex items-center gap-2 transition-colors bg-transparent border-0 cursor-pointer p-0" style="color: #10b981;"> Book Service → </button>
+       </div>
+      </div><!-- Bed Bug Treatment -->
+      <div class="service-card rounded-2xl overflow-hidden shadow-lg" style="background-color: #ffffff;">
+       <div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&amp;q=80" alt="Bed Bug Treatment" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Service image unavailable';">
+       </div>
+       <div class="p-6">
+        <h3 class="text-2xl font-bold mb-3" style="color: #0f172a;">🛏️ Bed Bug Treatment</h3>
+        <p class="mb-4" style="color: #64748b;">Advanced heat &amp; chemical treatment for complete bed bug elimination.</p><button onclick="bookService('Cockroach Control')" class="font-semibold inline-flex items-center gap-2 transition-colors bg-transparent border-0 cursor-pointer p-0" style="color: #10b981;"> Book Service → </button>
+       </div>
+      </div><!-- Rodent Control -->
+      <div class="service-card rounded-2xl overflow-hidden shadow-lg" style="background-color: #ffffff;">
+       <div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&amp;q=80" alt="Rodent Control" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Service image unavailable';">
+       </div>
+       <div class="p-6">
+        <h3 class="text-2xl font-bold mb-3" style="color: #0f172a;">�� Rodent Control</h3>
+        <p class="mb-4" style="color: #64748b;">Safe &amp; effective rat control with sealing &amp; prevention measures.</p><button onclick="bookService('Cockroach Control')" class="font-semibold inline-flex items-center gap-2 transition-colors bg-transparent border-0 cursor-pointer p-0" style="color: #10b981;"> Book Service → </button>
+       </div>
+      </div><!-- Deep Cleaning -->
+      <div class="service-card rounded-2xl overflow-hidden shadow-lg" style="background-color: #ffffff;">
+       <div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&amp;q=80" alt="Deep Cleaning" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Service image unavailable';">
+       </div>
+       <div class="p-6">
+        <h3 class="text-2xl font-bold mb-3" style="color: #0f172a;">✨ Deep Home Cleaning</h3>
+        <p class="mb-4" style="color: #64748b;">Professional cleaning service for spotless, hygienic spaces.</p><button onclick="bookService('Cockroach Control')" class="font-semibold inline-flex items-center gap-2 transition-colors bg-transparent border-0 cursor-pointer p-0" style="color: #10b981;"> Book Service → </button>
+       </div>
+      </div><!-- Mosquito Control -->
+      <div class="service-card rounded-2xl overflow-hidden shadow-lg" style="background-color: #ffffff;">
+       <div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1616790540649-39161c370e1c?w=800&amp;q=80" alt="Mosquito Control" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Service image unavailable';">
+       </div>
+       <div class="p-6">
+        <h3 class="text-2xl font-bold mb-3" style="color: #0f172a;">🦟 Mosquito Control</h3>
+        <p class="mb-4" style="color: #64748b;">Fogging &amp; larvicide treatment for mosquito-free environment.</p><button onclick="bookService('Cockroach Control')" class="font-semibold inline-flex items-center gap-2 transition-colors bg-transparent border-0 cursor-pointer p-0" style="color: #10b981;"> Book Service → </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Why Choose Us -->
+   <section id="why-us" class="py-20" style="background-color: #ffffff;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-black mb-4" style="color: #0f172a;">Why Pune Trusts Us</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="trust-badge p-8 rounded-2xl text-center shadow-lg" style="background-color: #f0fdf4;">
+       <div class="text-5xl mb-4">
+        🏆
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #0f172a;">15+ Years Experience</h3>
+       <p style="color: #64748b;">Serving Pune with trusted pest control solutions since 2009</p>
+      </div>
+      <div class="trust-badge p-8 rounded-2xl text-center shadow-lg" style="background-color: #f0fdf4;">
+       <div class="text-5xl mb-4">
+        ✅
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #0f172a;">100% Safe Methods</h3>
+       <p style="color: #64748b;">Eco-friendly, odorless chemicals approved by government</p>
+      </div>
+      <div class="trust-badge p-8 rounded-2xl text-center shadow-lg" style="background-color: #f0fdf4;">
+       <div class="text-5xl mb-4">
+        💰
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #0f172a;">Transparent Pricing</h3>
+       <p style="color: #64748b;">No hidden charges. What you see is what you pay</p>
+      </div>
+      <div class="trust-badge p-8 rounded-2xl text-center shadow-lg" style="background-color: #f0fdf4;">
+       <div class="text-5xl mb-4">
+        ⚡
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #0f172a;">Same Day Service</h3>
+       <p style="color: #64748b;">Emergency pest control available within hours</p>
+      </div>
+      <div class="trust-badge p-8 rounded-2xl text-center shadow-lg" style="background-color: #f0fdf4;">
+       <div class="text-5xl mb-4">
+        👨‍🔧
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #0f172a;">Trained Experts</h3>
+       <p style="color: #64748b;">Certified technicians with proven track record</p>
+      </div>
+      <div class="trust-badge p-8 rounded-2xl text-center shadow-lg" style="background-color: #f0fdf4;">
+       <div class="text-5xl mb-4">
+        ��
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #0f172a;">Guaranteed Results</h3>
+       <p style="color: #64748b;">We stand behind our work with satisfaction guarantee</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Customer Testimonials -->
+   <section id="testimonials" class="py-20" style="background-color: #ffffff;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-black mb-4" style="color: #0f172a;">What Our Customers Say</h2>
+      <p class="text-xl" style="color: #64748b;">Real reviews from satisfied customers across Pune</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-8 rounded-2xl shadow-lg" style="background-color: #f0fdf4;">
+       <div class="flex items-center gap-2 mb-4"><span style="color: #fbbf24;">⭐⭐⭐⭐⭐</span>
+       </div>
+       <p class="mb-4 text-lg" style="color: #0f172a;">"Excellent service! They removed all cockroaches from my kitchen. Very professional and used safe chemicals. Highly recommended!"</p>
+       <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background-color: #10b981; color: white;">
+         P
+        </div>
+        <div>
+         <p class="font-bold" style="color: #0f172a;">Priya Sharma</p>
+         <p class="text-sm" style="color: #64748b;">Kothrud, Pune</p>
+        </div>
+       </div>
+      </div>
+      <div class="p-8 rounded-2xl shadow-lg" style="background-color: #f0fdf4;">
+       <div class="flex items-center gap-2 mb-4"><span style="color: #fbbf24;">⭐⭐⭐⭐⭐</span>
+       </div>
+       <p class="mb-4 text-lg" style="color: #0f172a;">"Best termite treatment in Pune! Very thorough work and reasonable pricing. No termite issues after 2 years. Great team!"</p>
+       <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background-color: #10b981; color: white;">
+         R
+        </div>
+        <div>
+         <p class="font-bold" style="color: #0f172a;">Rajesh Patil</p>
+         <p class="text-sm" style="color: #64748b;">Wakad, Pune</p>
+        </div>
+       </div>
+      </div>
+      <div class="p-8 rounded-2xl shadow-lg" style="background-color: #f0fdf4;">
+       <div class="flex items-center gap-2 mb-4"><span style="color: #fbbf24;">⭐⭐⭐⭐⭐</span>
+       </div>
+       <p class="mb-4 text-lg" style="color: #0f172a;">"Called them for bed bug treatment. Same day service and complete removal in one treatment. Very satisfied with results!"</p>
+       <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background-color: #10b981; color: white;">
+         S
+        </div>
+        <div>
+         <p class="font-bold" style="color: #0f172a;">Sneha Deshmukh</p>
+         <p class="text-sm" style="color: #64748b;">Hinjewadi, Pune</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Service Areas -->
+   <section id="areas" class="py-20" style="background-color: #f8fafc;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-black mb-4" style="color: #0f172a;">Areas We Serve in Pune</h2>
+      <p class="text-xl" style="color: #64748b;">Professional pest control services across all major areas</p>
+     </div>
+     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Kothrud
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Wakad
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Hinjewadi
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Baner
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Aundh
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Pimpri Chinchwad
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Viman Nagar
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Koregaon Park
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Hadapsar
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Shivaji Nagar
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 Deccan
+      </div>
+      <div class="p-4 rounded-lg text-center font-semibold transition-all hover:shadow-lg" style="background-color: #ffffff; color: #0f172a;">
+       📍 All Pune Areas
+      </div>
+     </div>
+    </div>
+   </section><!-- FAQ Section -->
+   <section id="faq" class="py-20" style="background-color: #ffffff;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-black mb-4" style="color: #0f172a;">Frequently Asked Questions</h2>
+      <p class="text-xl" style="color: #64748b;">Common questions about our pest control services</p>
+     </div>
+     <div class="space-y-6">
+      <div class="p-6 rounded-xl shadow-lg" style="background-color: #f8fafc;">
+       <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color: #0f172a;"><span style="color: #10b981;">❓</span> Are your chemicals safe for children and pets?</h3>
+       <p style="color: #64748b;">Yes, absolutely! We use only government-approved, eco-friendly chemicals that are completely safe for children, pets, and pregnant women. Our treatments are odorless and non-toxic.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow-lg" style="background-color: #f8fafc;">
+       <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color: #0f172a;"><span style="color: #10b981;">❓</span> How long does the treatment last?</h3>
+       <p style="color: #64748b;">Most treatments provide protection for 6-12 months depending on the pest type. Cockroach and termite treatments typically last 12 months, while mosquito control requires quarterly service.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow-lg" style="background-color: #f8fafc;">
+       <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color: #0f172a;"><span style="color: #10b981;">❓</span> Do I need to vacate my home during treatment?</h3>
+       <p style="color: #64748b;">No, you don't need to leave your home. Our treatments are safe and you can stay during the service. We only recommend keeping children and pets away from the treatment area for 1-2 hours.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow-lg" style="background-color: #f8fafc;">
+       <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color: #0f172a;"><span style="color: #10b981;">❓</span> What is your service guarantee?</h3>
+       <p style="color: #64748b;">We offer 100% satisfaction guarantee. If pests return within the warranty period, we provide free re-treatment. Our goal is complete pest elimination and your peace of mind.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow-lg" style="background-color: #f8fafc;">
+       <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color: #0f172a;"><span style="color: #10b981;">❓</span> How quickly can you provide service?</h3>
+       <p style="color: #64748b;">We offer same-day service for emergency cases. For regular bookings, we can schedule within 24-48 hours based on your convenience. Call us for immediate assistance!</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Lead Generation Form -->
+   <section class="py-20" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);" id="contact-form">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid lg:grid-cols-2 gap-12 items-center"><!-- Left Column: Information -->
+      <div class="text-white">
+       <h2 class="text-4xl sm:text-5xl font-black mb-6">Get Your Free Inspection Today</h2>
+       <p class="text-xl mb-8 text-green-400">Fill the form &amp; our expert will call you within 30 minutes</p>
+       <div class="space-y-6 mb-8">
+        <div class="flex items-start gap-4">
+         <div class="bg-green-500 rounded-full p-3 flex-shrink-0">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+         </div>
+         <div>
+          <h3 class="text-xl font-bold mb-2">100% Free Inspection</h3>
+          <p class="text-gray-300">No hidden charges. Our expert will assess your property completely free.</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="bg-green-500 rounded-full p-3 flex-shrink-0">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+         </div>
+         <div>
+          <h3 class="text-xl font-bold mb-2">Quick Response Time</h3>
+          <p class="text-gray-300">Get a call back within 30 minutes. Same day service available.</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="bg-green-500 rounded-full p-3 flex-shrink-0">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+         </div>
+         <div>
+          <h3 class="text-xl font-bold mb-2">Safe &amp; Certified</h3>
+          <p class="text-gray-300">Government approved chemicals. Safe for kids, pets &amp; family.</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="bg-green-500 rounded-full p-3 flex-shrink-0">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
+          </svg>
+         </div>
+         <div>
+          <h3 class="text-xl font-bold mb-2">Satisfaction Guaranteed</h3>
+          <p class="text-gray-300">100% money-back guarantee if you're not satisfied with results.</p>
+         </div>
+        </div>
+       </div>
+       <div class="flex items-center gap-4 p-6 rounded-xl bg-white/10 backdrop-blur-sm">
+        <div class="text-5xl">
+         ⭐
+        </div>
+        <div>
+         <div class="flex gap-1 mb-2"><span class="text-yellow-400">★★★★★</span>
+         </div>
+         <p class="font-semibold">Rated 4.9/5 by 5000+ Happy Customers</p>
+        </div>
+       </div>
+      </div><!-- Right Column: Form -->
+      <div class="rounded-2xl p-8 sm:p-10 shadow-2xl" style="background-color: #ffffff;">
+       <form id="lead-form" class="space-y-5">
+        <div><label for="name" class="block font-semibold mb-2" style="color: #0f172a;">Your Name *</label> <input type="text" id="name" name="name" required class="form-input w-full px-4 py-3 rounded-lg border-2 transition-all" style="border-color: #e2e8f0; background-color: #f8fafc;" placeholder="Enter your full name">
+        </div>
+        <div><label for="phone" class="block font-semibold mb-2" style="color: #0f172a;">Phone Number *</label> <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" class="form-input w-full px-4 py-3 rounded-lg border-2 transition-all" style="border-color: #e2e8f0; background-color: #f8fafc;" placeholder="10 digit mobile number">
+        </div>
+        <div><label for="email" class="block font-semibold mb-2" style="color: #0f172a;">Email Address</label> <input type="email" id="email" name="email" class="form-input w-full px-4 py-3 rounded-lg border-2 transition-all" style="border-color: #e2e8f0; background-color: #f8fafc;" placeholder="your.email@example.com">
+        </div>
+        <div><label for="service" class="block font-semibold mb-2" style="color: #0f172a;">Service Required *</label> <select id="service" name="service" required class="form-input w-full px-4 py-3 rounded-lg border-2 transition-all" style="border-color: #e2e8f0; background-color: #f8fafc;"> <option value="">Select a service</option> <option value="Cockroach Control">Cockroach Control</option> <option value="Termite Control">Termite Control</option> <option value="Bed Bug Treatment">Bed Bug Treatment</option> <option value="Rodent Control">Rodent Control</option> <option value="Mosquito Control">Mosquito Control</option> <option value="Ant Control">Ant Control</option> <option value="Deep Cleaning">Deep Home Cleaning</option> <option value="Office Cleaning">Office Cleaning</option> <option value="General Pest Control">General Pest Control</option> </select>
+        </div>
+        <div><label for="message" class="block font-semibold mb-2" style="color: #0f172a;">Additional Details</label> <textarea id="message" name="message" rows="3" class="form-input w-full px-4 py-3 rounded-lg border-2 transition-all resize-none" style="border-color: #e2e8f0; background-color: #f8fafc;" placeholder="Tell us about your pest problem..."></textarea>
+        </div><button type="submit" id="submit-btn" class="w-full py-4 rounded-lg font-bold text-lg text-white transition-all shadow-lg hover:shadow-xl" style="background-color: #10b981;"> 🚀 Request Free Inspection </button>
+        <p class="text-center text-sm" style="color: #64748b;">✓ No obligation · ✓ Free consultation · ✓ 30 min response</p>
+       </form>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Info -->
+   <section class="py-16" style="background-color: #f8fafc;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="text-center p-8 rounded-2xl shadow-lg" style="background-color: #ffffff;">
+       <div class="text-4xl mb-4">
+        📞
+       </div>
+       <h3 class="font-bold text-xl mb-2" style="color: #0f172a;">Call Us</h3>
+       <p class="text-2xl font-bold mb-2" style="color: #10b981;" id="contact-phone">07719012999</p>
+       <p style="color: #64748b;">Mon-Sun: 9 AM - 8 PM</p>
+      </div>
+      <div class="text-center p-8 rounded-2xl shadow-lg" style="background-color: #ffffff;">
+       <div class="text-4xl mb-4">
+        📍
+       </div>
+       <h3 class="font-bold text-xl mb-2" style="color: #0f172a;">Visit Us</h3>
+       <p style="color: #64748b;">Near Bandal Dairy, Badami Haud<br>
+        Shukrawar Peth, Pune 411002</p>
+      </div>
+      <div class="text-center p-8 rounded-2xl shadow-lg md:col-span-2" style="background-color: #ffffff;">
+       <div class="text-4xl mb-4">
+        💬
+       </div>
+       <h3 class="font-bold text-xl mb-2" style="color: #0f172a;">WhatsApp</h3><a id="footer-whatsapp-btn" class="inline-block px-6 py-3 rounded-lg font-semibold text-white mt-2" style="background-color: #10b981; text-decoration: none;"> Chat Now </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-16" style="background-color: #0f172a;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid md:grid-cols-3 gap-12 mb-12"><!-- Column 1: About -->
+      <div>
+       <h3 class="text-2xl font-bold mb-4 text-white" id="footer-business-name">SAI PEST CONTROL &amp; CLEANING SERVICES</h3>
+       <p class="mb-4" style="color: #94a3b8;" id="footer-tagline">Reliable Pest Control &amp; Professional Cleaning Services in Pune</p>
+       <p style="color: #94a3b8;">We provide safe, effective, and eco-friendly pest control and cleaning solutions for homes, offices, and commercial spaces across Pune.</p>
+       <div class="flex gap-4 mt-6"><span class="text-white font-semibold">✓ Licensed</span> <span class="text-white font-semibold">✓ Insured</span> <span class="text-white font-semibold">✓ Certified</span>
+       </div>
+      </div><!-- Column 2: Our Services -->
+      <div>
+       <h4 class="text-xl font-bold mb-4 text-white">Our Services</h4>
+       <ul class="space-y-3">
+        <li><a href="#contact-form" class="transition-colors" style="color: #94a3b8; text-decoration: none;">🪳 Cockroach Control</a></li>
+        <li><a href="#contact-form" class="transition-colors" style="color: #94a3b8; text-decoration: none;">🐛 Termite Treatment</a></li>
+        <li><a href="#contact-form" class="transition-colors" style="color: #94a3b8; text-decoration: none;">🛏️ Bed Bug Treatment</a></li>
+        <li><a href="#contact-form" class="transition-colors" style="color: #94a3b8; text-decoration: none;">🐀 Rodent Control</a></li>
+        <li><a href="#contact-form" class="transition-colors" style="color: #94a3b8; text-decoration: none;">🦟 Mosquito Control</a></li>
+        <li><a href="#contact-form" class="transition-colors" style="color: #94a3b8; text-decoration: none;">✨ Deep Home Cleaning</a></li>
+        <li><a href="#contact-form" class="transition-colors" style="color: #94a3b8; text-decoration: none;">🏢 Office Cleaning</a></li>
+       </ul>
+      </div><!-- Column 3: Contact Info -->
+      <div>
+       <h4 class="text-xl font-bold mb-4 text-white">Contact Us</h4>
+       <div class="space-y-4">
+        <div>
+         <p class="font-semibold text-white mb-1">📞 Phone</p>
+         <p class="text-xl font-bold mb-1" style="color: #10b981;" id="footer-phone">07719012999</p>
+         <p style="color: #94a3b8;">Mon-Sun: 9 AM - 8 PM</p>
+        </div>
+        <div>
+         <p class="font-semibold text-white mb-1">📍 Address</p>
+         <p style="color: #94a3b8;">Near Bandal Dairy, Badami Haud<br>
+          Shukrawar Peth, Pune 411002</p>
+        </div>
+        <div><a id="footer-whatsapp-link" class="inline-block px-6 py-3 rounded-lg font-semibold text-white mt-2 transition-all" style="background-color: #10b981; text-decoration: none;"> �� WhatsApp Us </a>
+        </div>
+       </div>
+      </div>
+     </div><!-- Bottom Bar -->
+     <div class="border-t pt-8 text-center" style="border-color: #334155;">
+      <p style="color: #64748b;">© 2024 SAI Pest Control &amp; Cleaning Services. All rights reserved.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    let currentRecordCount = 0;
+
+    const defaultConfig = {
+      business_name: "SAI PEST CONTROL & CLEANING SERVICES",
+      tagline: "Reliable Pest Control & Professional Cleaning Services in Pune",
+      phone_number: "07719012999",
+      hero_title: "Protect Your Home & Workplace From Pests",
+      hero_subtitle: "Safe, Effective & Guaranteed Results",
+      cta_text: "Get Free Inspection",
+      primary_action_color: "#10b981",
+      background_color: "#f8fafc",
+      text_color: "#0f172a",
+      secondary_surface_color: "#ffffff"
+    };
+
+    function showToast(message, type = 'success') {
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.style.animation = 'slideIn 0.3s ease-out reverse';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    function bookService(serviceName) {
+      const businessPhone = (window.elementSdk && window.elementSdk.config.phone_number) 
+        ? window.elementSdk.config.phone_number 
+        : defaultConfig.phone_number;
+      
+      const whatsappMessage = `*🔔 SERVICE INQUIRY*%0A%0A` +
+        `I'm interested in booking *${encodeURIComponent(serviceName)}*%0A%0A` +
+        `Please share more details about:%0A` +
+        `• Service pricing%0A` +
+        `• Available time slots%0A` +
+        `• What to expect%0A%0A` +
+        `Thank you!`;
+      
+      const whatsappURL = `https://wa.me/91${businessPhone.replace(/\D/g, '')}?text=${whatsappMessage}`;
+      
+      window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+      
+      showToast(`Opening WhatsApp for ${serviceName}...`, 'success');
+    }
+
+    const dataHandler = {
+      onDataChanged(data) {
+        currentRecordCount = data.length;
+      }
+    };
+
+    async function onConfigChange(config) {
+      const businessName = config.business_name || defaultConfig.business_name;
+      const tagline = config.tagline || defaultConfig.tagline;
+      const phoneNumber = config.phone_number || defaultConfig.phone_number;
+      const heroTitle = config.hero_title || defaultConfig.hero_title;
+      const heroSubtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
+      const ctaText = config.cta_text || defaultConfig.cta_text;
+      const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const secondarySurfaceColor = config.secondary_surface_color || defaultConfig.secondary_surface_color;
+
+      document.getElementById('business-name').textContent = businessName;
+      document.getElementById('tagline').textContent = tagline;
+      document.getElementById('header-phone').textContent = phoneNumber;
+      document.getElementById('mobile-phone').textContent = phoneNumber;
+      document.getElementById('hero-title').textContent = heroTitle;
+      document.getElementById('hero-subtitle').textContent = heroSubtitle;
+      document.getElementById('cta-text').textContent = ctaText;
+      document.getElementById('contact-phone').textContent = phoneNumber;
+      document.getElementById('footer-business-name').textContent = businessName;
+      document.getElementById('footer-tagline').textContent = tagline;
+      document.getElementById('footer-phone').textContent = phoneNumber;
+
+      const phoneLink = `tel:${phoneNumber}`;
+      const whatsappLink = `https://wa.me/91${phoneNumber.replace(/\D/g, '')}`;
+      
+      document.getElementById('header-call-btn').href = phoneLink;
+      document.getElementById('mobile-call-btn').href = phoneLink;
+      document.getElementById('hero-call-btn').href = phoneLink;
+      document.getElementById('footer-whatsapp-btn').href = whatsappLink;
+      document.getElementById('footer-whatsapp-link').href = whatsappLink;
+
+      document.getElementById('header-call-btn').style.backgroundColor = primaryActionColor;
+      document.getElementById('mobile-call-btn').style.backgroundColor = primaryActionColor;
+      const submitBtn = document.getElementById('submit-btn');
+      if (submitBtn) submitBtn.style.backgroundColor = primaryActionColor;
+
+      const statCards = document.querySelectorAll('.stat-card');
+      statCards.forEach(card => {
+        const number = card.querySelector('div');
+        if (number) number.style.color = primaryActionColor;
+      });
+
+      document.body.style.backgroundColor = backgroundColor;
+      document.body.style.color = textColor;
+
+      const serviceCards = document.querySelectorAll('.service-card');
+      serviceCards.forEach(card => {
+        card.style.backgroundColor = secondarySurfaceColor;
+      });
+
+      const trustBadges = document.querySelectorAll('.trust-badge');
+      trustBadges.forEach(badge => {
+        const heading = badge.querySelector('h3');
+        if (heading) heading.style.color = textColor;
+      });
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+
+    document.getElementById('lead-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (currentRecordCount >= 999) {
+        showToast('Maximum limit of 999 inquiries reached. Please contact us directly.', 'error');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submit-btn');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = '�� Submitting...';
+      submitBtn.style.opacity = '0.7';
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value || 'Not provided';
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value || 'No additional details';
+
+      const formData = {
+        name: name,
+        phone: phone,
+        email: email,
+        service: service,
+        message: message,
+        timestamp: new Date().toISOString()
+      };
+
+      const result = await window.dataSdk.create(formData);
+
+      if (result.isOk) {
+        // Create WhatsApp message with formatted lead details
+        const businessPhone = (window.elementSdk && window.elementSdk.config.phone_number) 
+          ? window.elementSdk.config.phone_number 
+          : defaultConfig.phone_number;
+        
+        const whatsappMessage = `*🆕 NEW LEAD INQUIRY*%0A%0A` +
+          `*Name:* ${encodeURIComponent(name)}%0A` +
+          `*Phone:* ${phone}%0A` +
+          `*Email:* ${encodeURIComponent(email)}%0A` +
+          `*Service Required:* ${encodeURIComponent(service)}%0A` +
+          `*Message:* ${encodeURIComponent(message)}%0A%0A` +
+          `*Submitted:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
+        
+        const whatsappURL = `https://wa.me/91${businessPhone.replace(/\D/g, '')}?text=${whatsappMessage}`;
+        
+        // Open WhatsApp in new tab with pre-filled message
+        window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+        
+        showToast('✓ Thank you! Opening WhatsApp to send your inquiry...', 'success');
+        document.getElementById('lead-form').reset();
+      } else {
+        showToast('❌ Submission failed. Please call us directly.', 'error');
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      submitBtn.style.opacity = '1';
+    });
+
+    if (window.dataSdk) {
+      window.dataSdk.init(dataHandler).then(result => {
+        if (!result.isOk) {
+          console.error('Failed to initialize data SDK');
+        }
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_surface_color || defaultConfig.secondary_surface_color,
+              set: (value) => {
+                config.secondary_surface_color = value;
+                window.elementSdk.setConfig({ secondary_surface_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_action_color || defaultConfig.primary_action_color,
+              set: (value) => {
+                config.primary_action_color = value;
+                window.elementSdk.setConfig({ primary_action_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["business_name", config.business_name || defaultConfig.business_name],
+          ["tagline", config.tagline || defaultConfig.tagline],
+          ["phone_number", config.phone_number || defaultConfig.phone_number],
+          ["hero_title", config.hero_title || defaultConfig.hero_title],
+          ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+          ["cta_text", config.cta_text || defaultConfig.cta_text]
+        ])
+      });
+
+      onConfigChange(window.elementSdk.config);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c585df2035d23ff',t:'MTc2OTY4NTkwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
